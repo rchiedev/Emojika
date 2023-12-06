@@ -1,6 +1,8 @@
 # Emojika
 Emojika is a clone of <a href="https://en.wikipedia.org/wiki/Suika_Game" target="_blank">Suika Game</a> where you merge emojis
 
+https://github.com/rchiedev/Emojika/assets/92310253/cf8d4d67-cea3-4f89-8312-7ee2503e89e4
+
 # About the project
 This is my first completed project and was created for me to learn game development using Godot Engine.
 Things that i learned from this project are:
