@@ -24,3 +24,4 @@ Things that i wish to learn and improve more:
 Some issues i notice and (hopefully??) will fix some time in the future
 + When you have 2 of the same emoji on the floor, and you drop another (same) emoji on both of them at the same time, it will combine three of them.
 + Sometimes emoji with very very VERY slow velocity (ex. sliding on the floor) won't combine when they touch the same emoji
++ (Not important) I tried messing with the emoji's mass but it probably did nothing or i set it up too small
