@@ -1,0 +1,265 @@
+[gd_scene load_steps=22 format=3 uid="uid://ki2m5c711hbd"]
+
+[ext_resource type="Script" path="res://Game/game.gd" id="1_66o6g"]
+[ext_resource type="Texture2D" uid="uid://b8vnunedwaj3g" path="res://Assets/Black.png" id="1_fdalo"]
+[ext_resource type="Script" path="res://Game/EmojiContainer.gd" id="1_ylb5y"]
+[ext_resource type="PackedScene" uid="uid://b41531j35rlby" path="res://Game/emoji_spawner.tscn" id="2_cy5lu"]
+[ext_resource type="Texture2D" uid="uid://c3tk43mtcr0ci" path="res://Assets/Background.png" id="2_ss7xb"]
+[ext_resource type="AudioStream" uid="uid://b21darkxy01hi" path="res://Assets/GameOver.ogg" id="3_ix2bm"]
+[ext_resource type="AudioStream" uid="uid://b2ufqknkj3jop" path="res://Assets/Combine.ogg" id="4_7weqo"]
+[ext_resource type="Texture2D" uid="uid://c4fjj3vlnlnsw" path="res://Assets/Combination.png" id="6_2p8lv"]
+[ext_resource type="Texture2D" uid="uid://p4hqkoe8h4rf" path="res://Assets/Next-Emoji-Sign.png" id="8_rcouf"]
+[ext_resource type="Texture2D" uid="uid://0l4k54sdivd2" path="res://Assets/1.png" id="9_juljn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hmnh3"]
+size = Vector2(44, 727)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kjtdt"]
+size = Vector2(49, 719)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c3pay"]
+size = Vector2(108.5, 545)
+
+[sub_resource type="LabelSettings" id="LabelSettings_i1hn4"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_obndg"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5v6tm"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nmdc7"]
+font_size = 128
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4stkb"]
+font_size = 64
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pavw8"]
+bg_color = Color(0, 0.662745, 0.921569, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qsirc"]
+bg_color = Color(0, 0.533333, 0.745098, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8jbk"]
+bg_color = Color(0, 0.337255, 0.478431, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_66o6g")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ss7xb")
+metadata/_edit_lock_ = true
+
+[node name="GameOverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ix2bm")
+
+[node name="EmojiContainer" type="Node2D" parent="." groups=["container"]]
+script = ExtResource("1_ylb5y")
+metadata/_edit_lock_ = true
+
+[node name="CombineSound" type="AudioStreamPlayer2D" parent="EmojiContainer"]
+stream = ExtResource("4_7weqo")
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(728, 761)
+
+[node name="Sprite2D" type="Sprite2D" parent="LeftWall"]
+position = Vector2(0, -118.875)
+scale = Vector2(1, 35)
+texture = ExtResource("1_fdalo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(-14, -163.5)
+shape = SubResource("RectangleShape2D_hmnh3")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1192, 643)
+
+[node name="Sprite2D" type="Sprite2D" parent="RightWall"]
+scale = Vector2(1, 35)
+texture = ExtResource("1_fdalo")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(16.5, -40.5)
+shape = SubResource("RectangleShape2D_kjtdt")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(960, 930)
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+scale = Vector2(1, 30)
+texture = ExtResource("1_fdalo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(46, -3.00018)
+shape = SubResource("RectangleShape2D_c3pay")
+
+[node name="EmojiSpawner" parent="." instance=ExtResource("2_cy5lu")]
+position = Vector2(769, 250)
+collision_layer = 0
+collision_mask = 0
+
+[node name="LeftMax" type="Marker2D" parent="."]
+position = Vector2(739, 362)
+
+[node name="RightMax" type="Marker2D" parent="."]
+position = Vector2(1181, 363)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="CanvasLayer"]
+offset_left = 140.0
+offset_top = 240.0
+offset_right = 569.0
+offset_bottom = 328.0
+text = "Current Score"
+label_settings = SubResource("LabelSettings_i1hn4")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreCounter" type="Label" parent="CanvasLayer"]
+unique_name_in_owner = true
+offset_left = 280.0
+offset_top = 330.0
+offset_right = 428.0
+offset_bottom = 418.0
+text = "9999"
+label_settings = SubResource("LabelSettings_obndg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NextEmoji" type="Label" parent="CanvasLayer"]
+offset_left = 1388.0
+offset_top = 240.0
+offset_right = 1724.0
+offset_bottom = 328.0
+text = "Next Emoji"
+label_settings = SubResource("LabelSettings_5v6tm")
+
+[node name="NextEmojiSign" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1468.0
+offset_top = 330.0
+offset_right = 2288.0
+offset_bottom = 1150.0
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("8_rcouf")
+
+[node name="NextEmojiSprite" type="Sprite2D" parent="CanvasLayer/NextEmojiSign"]
+unique_name_in_owner = true
+position = Vector2(410, 410)
+texture = ExtResource("9_juljn")
+
+[node name="CombinationWheel" type="TextureRect" parent="CanvasLayer"]
+offset_left = 1339.0
+offset_top = 523.0
+offset_right = 2159.0
+offset_bottom = 1343.0
+scale = Vector2(0.516625, 0.516625)
+texture = ExtResource("6_2p8lv")
+
+[node name="GameOverScreen" type="ColorRect" parent="CanvasLayer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(1920, 1080)
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.588235)
+metadata/_edit_lock_ = true
+
+[node name="GameOver" type="Label" parent="CanvasLayer/GameOverScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -365.0
+offset_top = -213.0
+offset_right = 365.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Game Over!"
+label_settings = SubResource("LabelSettings_nmdc7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="FinalScore" type="Label" parent="CanvasLayer/GameOverScreen"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.5
+offset_top = -44.0
+offset_right = 185.5
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Score : 9999"
+label_settings = SubResource("LabelSettings_4stkb")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NewGame" type="Button" parent="CanvasLayer/GameOverScreen"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -167.5
+offset_top = 61.0
+offset_right = 167.5
+offset_bottom = 157.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_pavw8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qsirc")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e8jbk")
+text = " New game "
+
+[connection signal="pressed" from="CanvasLayer/GameOverScreen/NewGame" to="." method="_on_new_game_pressed"]

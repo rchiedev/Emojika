@@ -1,0 +1,14 @@
+Sprite2D
+TextureRect
+Marker2D
+Label
+AnimationPlayer
+AudioStreamPlayer2D
+Button
+Timer
+ColorRect
+CanvasLayer
+CanvasGroup
+Line2D
+Node2D
+Node

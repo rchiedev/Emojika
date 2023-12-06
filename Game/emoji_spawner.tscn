@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://b41531j35rlby"]
+
+[ext_resource type="Script" path="res://Game/EmojiSpawner.gd" id="1_sotai"]
+[ext_resource type="Texture2D" uid="uid://cinuthjirhg2u" path="res://Assets/Hand-Hold.png" id="2_pjfhg"]
+[ext_resource type="Texture2D" uid="uid://btedkhu5gtml4" path="res://Assets/Speech-Bubble.png" id="3_bsm6q"]
+[ext_resource type="Texture2D" uid="uid://21opvldcpqab" path="res://Assets/Dotted-Line.png" id="4_gvssp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gmhfs"]
+
+[node name="EmojiSpawner" type="StaticBody2D"]
+script = ExtResource("1_sotai")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gmhfs")
+
+[node name="Hand" type="Sprite2D" parent="."]
+position = Vector2(-2.96235e-05, -1.49012e-05)
+scale = Vector2(0.079594, 0.079594)
+texture = ExtResource("2_pjfhg")
+
+[node name="Bubble" type="Sprite2D" parent="."]
+position = Vector2(-59.286, -96.6773)
+scale = Vector2(0.179493, 0.179493)
+texture = ExtResource("3_bsm6q")
+
+[node name="BubbleEmoji" type="Sprite2D" parent="Bubble"]
+position = Vector2(-3.9776, -85.3665)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(0, 35)
+
+[node name="Cooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Line2D" type="Line2D" parent="."]
+texture_repeat = 2
+position = Vector2(0, 49)
+points = PackedVector2Array(0, 0, 0, 600)
+texture = ExtResource("4_gvssp")
+texture_mode = 1
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="Cooldown" to="." method="_on_cooldown_timeout"]
