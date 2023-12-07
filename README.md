@@ -1,5 +1,5 @@
 # Emojika
-Emojika is a clone of <a href="https://en.wikipedia.org/wiki/Suika_Game" target="_blank">Suika Game</a> where you merge emojis
+Emojika is a clone of <a href="https://en.wikipedia.org/wiki/Suika_Game" target="_blank">Suika Game</a> where you merge emojis. try the game here: https://thermian.itch.io/emojika
 
 https://github.com/rchiedev/Emojika/assets/92310253/cf8d4d67-cea3-4f89-8312-7ee2503e89e4
 
